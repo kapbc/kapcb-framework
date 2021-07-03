@@ -107,3 +107,4 @@ build/
 log
 */log
 **/log
+./.idea
