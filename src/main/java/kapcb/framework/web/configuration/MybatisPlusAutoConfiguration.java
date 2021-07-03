@@ -18,7 +18,7 @@ import org.springframework.context.annotation.Bean;
  * @date 2021/7/3 14:45
  */
 @Slf4j
-@ConditionalOnProperty(value = "", havingValue = "", matchIfMissing = true)
+//@ConditionalOnProperty(value = "", havingValue = "", matchIfMissing = true)
 public class MybatisPlusAutoConfiguration {
 
     /**
