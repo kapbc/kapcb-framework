@@ -78,5 +78,4 @@ public class RedisLettuceAutoConfiguration {
         log.info("----kapcb auto configure redis template");
         return new RedisService(redisTemplate);
     }
-
 }
