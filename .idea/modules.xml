@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/kapcb-framework.iml" filepath="$PROJECT_DIR$/.idea/kapcb-framework.iml" />
+      <module fileurl="file://$PROJECT_DIR$/kapcb-framework.iml" filepath="$PROJECT_DIR$/kapcb-framework.iml" />
     </modules>
   </component>
 </project>

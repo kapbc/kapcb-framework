@@ -44,7 +44,6 @@ public class RedisLettuceAutoConfiguration {
         RedisTemplate<String, Object> redisTemplate = new RedisTemplate<>();
 
         ObjectMapper objectMapper = new ObjectMapper();
-
         BasicPolymorphicTypeValidator polymorphicTypeValidator = BasicPolymorphicTypeValidator.builder().allowIfBaseType(Object.class).build();
 
         // 指定要序列化的域，field,get和set,以及修饰符范围，ANY是都有包括private和public
