@@ -25,7 +25,17 @@ import org.springframework.data.redis.serializer.RedisSerializer;
  * <a>Title: RedisLettuceAutoConfiguration </a>
  * <a>Author: Kapcb <a>
  * <a>Description:  <a>
+ * <p>
  *
+ * ConditionalOnProperty注解:
+ * 属性是从application.properties配置文件中读取属性值
+ * havingValue 配置读取的属性值跟havingValue做比较，如果一样则返回true;否则返回false。如果返回值为false，则该configuration不生效；为true则生效
+ * matchIfMissing = true表示如果没有在application.properties设置该属性，则默认为条件符合
+ *
+ *
+ * EnableConfigurationProperties注解的作用是：使使用 @ConfigurationProperties 注解的类生效
+ * 如果一个配置类只配置@ConfigurationProperties注解，而没有使用@Component，那么在IOC容器中是获取不到properties 配置文件转化的bean。
+ * 说白了 @EnableConfigurationProperties 相当于把使用 @ConfigurationProperties 的类进行了一次注入。
  * @author Kapcb
  * @version 1.0.0
  * @date 2021/7/3 14:20

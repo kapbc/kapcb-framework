@@ -15,8 +15,8 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
  * @date 2021/7/3 14:44
  */
 @Slf4j
-@EnableConfigurationProperties(value = RedissonProperties.class)
-@ConditionalOnProperty(value = "kapcb.redis.redisson.autoConfigure", havingValue = "true", matchIfMissing = true)
+//@EnableConfigurationProperties(value = RedissonProperties.class)
+//@ConditionalOnProperty(value = "kapcb.redis.redisson.autoConfigure", havingValue = "true")
 public class RedissonAutoConfiguration {
 
 

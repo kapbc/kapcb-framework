@@ -11,7 +11,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
  * @version 1.0.0
  * @date 2021/7/3 13:45
  */
-@ConfigurationProperties(prefix = "kapcb.redis.redisson", ignoreInvalidFields = true)
+//@ConfigurationProperties(prefix = "kapcb.redis.redisson", ignoreInvalidFields = true)
 public class RedissonProperties {
 
     private Boolean autoConfigure = false;

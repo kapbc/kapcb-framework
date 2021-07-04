@@ -12,7 +12,7 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
  * @version 1.0.0
  * @date 2021/7/3 14:46
  */
-@ConditionalOnProperty(prefix = "")
+//@ConditionalOnProperty(prefix = "")
 public class MyBatisPlusProperties {
 
 //    @Value(value = "mybatis.plus.database.type:mysql")
