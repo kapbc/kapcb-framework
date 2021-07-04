@@ -65,6 +65,7 @@ public class Swagger2AutoConfiguration {
     }
 
     private List<SecurityContext> securityContexts() {
+        // 设置需要登录认证的路径
         List<SecurityContext> securityContexts = new ArrayList<>();
         securityContexts.add(SecurityContext.builder().securityReferences(defaultAuth()).forPaths(PathSelectors.regex("^(?!auth).*$")).build());
         return securityContexts;
@@ -80,6 +81,7 @@ public class Swagger2AutoConfiguration {
     }
 
     private List<SecurityScheme> securitySchemes() {
+        // 设置请求头信息
         List<SecurityScheme> securitySchemes = new ArrayList<>();
         ApiKey token = new ApiKey("Authorization", "Authorization", "header");
         ApiKey language = new ApiKey("language", "language", "header");

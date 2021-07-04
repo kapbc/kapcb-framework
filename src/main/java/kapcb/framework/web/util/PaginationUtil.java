@@ -38,8 +38,8 @@ public class PaginationUtil {
         pageResult.setRecords(paginationTuple._1);
         pageResult.setTotal(paginationParamTuple4._1);
         pageResult.setTotalPage(paginationParamTuple4._2);
-        pageResult.setPageNum(paginationParamTuple4._3);
-        pageResult.setPageSize(paginationParamTuple4._4);
+        pageResult.setPageSize(paginationParamTuple4._3);
+        pageResult.setPageNum(paginationParamTuple4._4);
         return pageResult;
     }
 
@@ -48,8 +48,8 @@ public class PaginationUtil {
         pageResult.setRecords(resultList);
         pageResult.setTotal(paginationTuple._1);
         pageResult.setTotalPage(paginationTuple._2);
-        pageResult.setPageNum(paginationTuple._3);
-        pageResult.setPageSize(paginationTuple._4);
+        pageResult.setPageSize(paginationTuple._3);
+        pageResult.setPageNum(paginationTuple._4);
         return pageResult;
     }
 
@@ -65,7 +65,27 @@ public class PaginationUtil {
      */
     @NonNull
     private static <T> Tuple constructPagination(@NonNull Page<T> page) {
+        BasePageResult<T> basePageResult = new BasePageResult<>();
+        basePageResult.setTotal(page.getTotal());
+        basePageResult.setTotalPage(page.getPages());
+        basePageResult.setPageSize(page.getSize());
+        basePageResult.setPageNum(page.getCurrent());
+        return Tuple.of(page.getRecords(), basePageResult);
+    }
+
+    private static <T> Tuple constructPaginationParam(@NonNull Page<T> page) {
         return Tuple.of(page.getRecords(), Tuple.of(page.getTotal(), page.getPages(), page.getSize(), page.getCurrent()));
+    }
+
+    @NonNull
+    private static <T> BasePageResult<T> directConstructPagination(@NonNull Page<T> page) {
+        BasePageResult<T> basePageResult = new BasePageResult<>();
+        basePageResult.setTotal(page.getTotal());
+        basePageResult.setTotalPage(page.getPages());
+        basePageResult.setPageSize(page.getSize());
+        basePageResult.setPageNum(page.getCurrent());
+        basePageResult.setRecords(page.getRecords());
+        return basePageResult;
     }
 
     /**
