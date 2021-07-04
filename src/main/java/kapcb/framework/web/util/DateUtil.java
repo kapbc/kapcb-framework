@@ -25,15 +25,15 @@ public class DateUtil {
     private DateUtil() {
     }
 
-    private static String format(@NonNull Date date, @NonNull String pattern) {
+    public static String format(@NonNull Date date, @NonNull String pattern) {
         return new DateTime(date).toString(pattern);
     }
 
-    private static String format(@NonNull LocalDate localDate, @NonNull String pattern) {
+    public static String format(@NonNull LocalDate localDate, @NonNull String pattern) {
         return new DateTime(localDate).toString(pattern);
     }
 
-    private static String format(@NonNull LocalDateTime localDateTime, @NonNull String pattern) {
+    public static String format(@NonNull LocalDateTime localDateTime, @NonNull String pattern) {
         return new DateTime(localDateTime).toString(pattern);
     }
 
