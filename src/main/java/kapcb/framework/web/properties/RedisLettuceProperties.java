@@ -13,7 +13,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
  * @date 2021/7/3 14:21
  */
 @Data
-@ConfigurationProperties(value = "kapcb.redis.lettuce",ignoreInvalidFields = true)
+@ConfigurationProperties(value = "kapcb.redis.lettuce", ignoreInvalidFields = true)
 public class RedisLettuceProperties {
 
     private Boolean autoConfigure = false;
