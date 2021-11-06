@@ -6,8 +6,9 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.JavaType;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import kapcb.framework.web.constants.enums.ResultStatus;
-import kapcb.framework.web.model.base.BaseResult;
+import kapcb.framework.web.constants.enums.IntegerPool;
+import kapcb.framework.web.constants.enums.StringPool;
+import lombok.experimental.UtilityClass;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 
@@ -26,12 +27,9 @@ import java.util.Objects;
  * @date 2021/7/3 13:55
  */
 @Slf4j
+@UtilityClass
 public class JsonUtil {
-    private JsonUtil() {
-    }
 
-    private static final int INITIAL_CAPACITY = 16;
-    private static final String DEFAULT_JSON_VALUE = "{}";
     private static final ObjectMapper OBJECT_MAPPER = new ObjectMapper();
 
     static {
@@ -39,35 +37,6 @@ public class JsonUtil {
         OBJECT_MAPPER.configure(JsonParser.Feature.ALLOW_UNQUOTED_FIELD_NAMES, true);
         OBJECT_MAPPER.configure(JsonParser.Feature.ALLOW_SINGLE_QUOTES, true);
         OBJECT_MAPPER.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, true);
-    }
-
-
-    /**
-     * convert service transfer json result
-     * please check the return value weather is null
-     *
-     * @param jsonString String
-     * @param clazz      Class<? extends T>
-     * @param <T>        T
-     * @return T
-     */
-    public static <T> T convertJsonToData(String jsonString, Class<? extends T> clazz) {
-        if (StringUtils.isBlank(jsonString) || Objects.isNull(clazz)) {
-            log.info("the json string or clazz is null, please check your input args...");
-            return null;
-        }
-        try {
-            BaseResult baseResult = OBJECT_MAPPER.readValue(jsonString, BaseResult.class);
-            if (Objects.nonNull(baseResult) && Objects.equals(baseResult.getCode(), ResultStatus.SUCCESS.value())) {
-                log.info("the result data is : " + baseResult.getData());
-                if (Objects.nonNull(baseResult.getData())) {
-                    return OBJECT_MAPPER.convertValue(baseResult.getData(), clazz);
-                }
-            }
-        } catch (JsonProcessingException e) {
-            log.error("json process error, the exception message info is : " + e.getMessage());
-        }
-        return null;
     }
 
     /**
@@ -92,7 +61,7 @@ public class JsonUtil {
      * @param <T>    <T>
      * @return String
      */
-    public static <T> String convertObjectToString(T object) {
+    public static <T> String toJsonString(T object) {
         if (Objects.equals(null, object)) {
             return null;
         }
@@ -106,16 +75,16 @@ public class JsonUtil {
     }
 
     @SuppressWarnings("unchecked")
-    public static <T> T convertBytesToObject(byte[] bytes, Class<? extends T> clazz) {
+    public static <T> T readValue(byte[] bytes, Class<? extends T> clazz) {
         try {
             return Objects.equals(String.class, clazz) ? (T) new String(bytes) : OBJECT_MAPPER.readValue(bytes, clazz);
         } catch (IOException e) {
             log.error("process json process error, the exception is : " + e.getMessage());
         }
-        return (T) DEFAULT_JSON_VALUE;
+        return (T) StringPool.EMPTY_OBJECT.value();
     }
 
-    public static <T> String convertObjectToStringPretty(T object) {
+    public static <T> String toJsonStringPretty(T object) {
         if (Objects.equals(null, object)) {
             return null;
         }
@@ -137,7 +106,7 @@ public class JsonUtil {
      * @return String
      */
     @SuppressWarnings("unchecked")
-    public static <T> T convertStringToObject(String jsonString, Class<T> clazz) {
+    public static <T> T readValue(String jsonString, Class<T> clazz) {
         if (StringUtils.isBlank(jsonString) || clazz == null) {
             return null;
         }
@@ -159,7 +128,7 @@ public class JsonUtil {
      * @return T
      */
     @SuppressWarnings("unchecked")
-    public static <T> T convertStringToObject(String jsonString, TypeReference<T> typeReference) {
+    public static <T> T readValue(String jsonString, TypeReference<T> typeReference) {
         if (StringUtils.isBlank(jsonString) || typeReference == null) {
             return null;
         }
@@ -181,7 +150,7 @@ public class JsonUtil {
      * @return T
      */
     @SuppressWarnings("unchecked")
-    public static <T> T convertStringToObject(String jsonString, Class<?> collectionClass, Class<?>... elementClasses) {
+    public static <T> T readValue(String jsonString, Class<?> collectionClass, Class<?>... elementClasses) {
         JavaType javaType = OBJECT_MAPPER.getTypeFactory().constructParametricType(collectionClass, elementClasses);
         try {
             return OBJECT_MAPPER.readValue(jsonString, javaType);
@@ -196,7 +165,7 @@ public class JsonUtil {
      */
     public static class JsonBuilder {
 
-        private final Map<String, Object> builderMap = new HashMap<>(INITIAL_CAPACITY);
+        private final Map<String, Object> builderMap = new HashMap<>(IntegerPool.FOUR.value());
 
         public JsonBuilder() {
         }
@@ -213,7 +182,7 @@ public class JsonUtil {
             } catch (JsonProcessingException e) {
                 log.error("json process error, the exception is : " + e.getMessage(), e);
             }
-            return DEFAULT_JSON_VALUE;
+            return StringPool.EMPTY_OBJECT.value();
         }
     }
 }

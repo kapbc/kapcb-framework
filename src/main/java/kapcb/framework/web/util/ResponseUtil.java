@@ -1,6 +1,5 @@
 package kapcb.framework.web.util;
 
-import kapcb.framework.web.constants.enums.Image;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.http.HttpHeaders;

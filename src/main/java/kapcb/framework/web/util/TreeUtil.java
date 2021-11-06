@@ -2,6 +2,7 @@ package kapcb.framework.web.util;
 
 import kapcb.framework.web.constants.enums.IntegerPool;
 import kapcb.framework.web.model.base.BaseTree;
+import lombok.experimental.UtilityClass;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.lang.NonNull;
 
@@ -19,10 +20,8 @@ import java.util.stream.Collectors;
  * @date 2021/7/3 13:57
  */
 @Slf4j
+@UtilityClass
 public class TreeUtil {
-
-    private TreeUtil() {
-    }
 
     public static <T extends BaseTree<T>> List<T> convertTree(@NonNull List<T> originalList) {
         List<T> parentNode = originalList.parallelStream()

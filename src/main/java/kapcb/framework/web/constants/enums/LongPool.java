@@ -1,5 +1,7 @@
 package kapcb.framework.web.constants.enums;
 
+import kapcb.framework.web.constants.IEnumPool;
+
 /**
  * <a>Title: LongPool </a>
  * <a>Author: Kapcb <a>
@@ -9,7 +11,7 @@ package kapcb.framework.web.constants.enums;
  * @version 1.0.0
  * @date 2021/7/3 13:40
  */
-public enum LongPool {
+public enum LongPool implements IEnumPool<Long> {
 
     ZERO(0L, "number 0"),
     ONE(1L, "number 1"),
@@ -24,6 +26,7 @@ public enum LongPool {
         this.description = description;
     }
 
+    @Override
     public Long value() {
         return this.value;
     }

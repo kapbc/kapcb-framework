@@ -1,5 +1,6 @@
 package kapcb.framework.web.constants.enums;
 
+import kapcb.framework.web.constants.IEnumPool;
 import org.springframework.lang.NonNull;
 
 /**
@@ -11,7 +12,7 @@ import org.springframework.lang.NonNull;
  * @version 1.0.0
  * @date 2021/7/3 13:39
  */
-public enum StringPool {
+public enum StringPool implements IEnumPool<String> {
 
     /**
      * Common Constants
@@ -34,16 +35,26 @@ public enum StringPool {
     EXCLAMATION_SIGN("!", "!号"),
     SLASH("/", "斜杠"),
     DOT(".", "点"),
+    EMPTY_OBJECT("{}", "空对象"),
 
     PK_NULL_VALUE("0", "主键为空的字符串值"),
 
     /**
-     * SQL programmer
+     * SQL Programmer
      */
     SQL_ORDER("ORDER", "SQL排序"),
     SQL_ACS("ASC", "SQL正序"),
     SQL_DESC("DESC", "SQL倒序"),
     SQL_LIMIT("LIMIT", "SQL限定数量"),
+
+    /**
+     * Image Suffix
+     */
+    IMAGE_SUFFIX_PNG("png", "image with png"),
+    IMAGE_SUFFIX_JPG("jpg", "image with jpg"),
+    IMAGE_SUFFIX_JPEG("jpeg", "image with jpeg"),
+    IMAGE_SUFFIX_GIF("gif", "image with gif"),
+    IMAGE_SUFFIX_ICO("ico", "image with ico"),
 
 
     /**
@@ -61,6 +72,7 @@ public enum StringPool {
         this.description = description;
     }
 
+    @Override
     @NonNull
     public String value() {
         return this.value;

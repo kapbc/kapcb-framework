@@ -1,6 +1,5 @@
 package kapcb.framework.web.handler;
 
-import kapcb.framework.web.constants.enums.ResultStatus;
 import kapcb.framework.web.constants.enums.StringPool;
 import kapcb.framework.web.exception.BusinessException;
 import kapcb.framework.web.model.base.BaseResult;

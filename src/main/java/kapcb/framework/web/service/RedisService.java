@@ -31,8 +31,7 @@ public class RedisService {
 
     private final RedisTemplate<String, Object> redisTemplate;
 
-    @Autowired
-    public RedisService(@Qualifier("redisTemplate") RedisTemplate<String, Object> redisTemplate) {
+    public RedisService(@Autowired @Qualifier("redisTemplate") RedisTemplate<String, Object> redisTemplate) {
         this.redisTemplate = redisTemplate;
     }
 

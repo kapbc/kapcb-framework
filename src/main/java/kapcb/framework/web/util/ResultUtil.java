@@ -1,8 +1,9 @@
 package kapcb.framework.web.util;
 
 import com.alibaba.fastjson.JSONObject;
-import kapcb.framework.web.constants.enums.ResultStatus;
+import kapcb.framework.web.constants.IResultCode;
 import kapcb.framework.web.model.base.BaseResult;
+import lombok.experimental.UtilityClass;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections.CollectionUtils;
 import org.springframework.http.MediaType;
@@ -25,25 +26,8 @@ import java.util.List;
  * @date 2021/7/3 13:57
  */
 @Slf4j
+@UtilityClass
 public class ResultUtil {
-
-    private ResultUtil() {
-    }
-
-    /**
-     * check and get result data
-     *
-     * @param result BaseResult<T>
-     * @param <T>    BaseResult<T>
-     * @return T
-     */
-    @Nullable
-    public static <T> T checkAndGet(BaseResult<T> result) {
-        if (ResultStatus.SUCCESS.value().equals(result.getCode()) && result.getData() != null) {
-            return result.getData();
-        }
-        return null;
-    }
 
     /**
      * check and get data for collect
@@ -99,5 +83,9 @@ public class ResultUtil {
     public static <T> boolean setUpFailureResponse(HttpServletResponse httpServletResponse, T value) throws IOException {
         return setUpResponse(httpServletResponse, MediaType.APPLICATION_JSON_VALUE, HttpServletResponse.SC_INTERNAL_SERVER_ERROR, value);
     }
+
+//    public static <T> boolean setUpResponse(HttpServletResponse httpServletResponse, IResultCode resultCode){
+//
+//    }
 
 }

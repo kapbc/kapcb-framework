@@ -2,7 +2,6 @@ package kapcb.framework.web.model.base;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.annotations.ApiModel;
-import kapcb.framework.web.constants.enums.ResultStatus;
 import kapcb.framework.web.constants.pattern.DatePatternPool;
 import lombok.Data;
 import lombok.experimental.Accessors;
