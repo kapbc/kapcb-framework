@@ -79,6 +79,8 @@ public enum StringPool implements IEnumPool<String> {
     REQUEST_HEAD_X_REQUESTED_WITH("X-Requested-With", "request head中获取ajax请求标识的key"),
     REQUEST_XML_HTTP_REQUEST("XMLHttpRequest", "request head中ajax请求的标识"),
 
+    RESPONSE_HEAD_NO_CACHE("No-cache", "response head no cache"),
+
     CHINESE_MATCH_REGEX("[\\u4e00-\\u9fa5]", "chinese match regex"),
 
     DICTIONARY_REMARK_CAPITAL_CITY("capital", "capital city remark"),
