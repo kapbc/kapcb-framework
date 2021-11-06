@@ -65,10 +65,32 @@ public enum StringPool implements IEnumPool<String> {
     SPILT_LINE("[----------------------------------------------------------------------]", "spilt line"),
 
     /**
+     * Http Servlet Request
+     */
+    HTTP_REQUEST_UN_KNOWN("unknown", "未知"),
+    HTTP_REQUEST_X_FOR_WARDED_FOR("x-forwarded-for", "获取ip地址请求中的key"),
+    HTTP_REQUEST_PROXY_CLIENT_IP("Proxy-Client-IP", "获取ip地址请求中的key"),
+    HTTP_REQUEST_WL_PROXY_CLIENT_IP("WL-Proxy-Client-IP", "获取ip地址请求中的key"),
+    HTTP_REQUEST_HTTP_CLIENT_IP("HTTP_CLIENT_IP", "获取ip地址请求中的key"),
+    HTTP_REQUEST_HTTP_X_FORWARDED_FOR("HTTP_X_FORWARDED_FOR", "获取ip地址请求中的key"),
+    HTTP_REQUEST_AUTHORIZATION("Authorization", "http请求头中的Authorization"),
+    AUTHORIZATION_BEARER("Bearer ", "Bearer "),
+
+    REQUEST_HEAD_X_REQUESTED_WITH("X-Requested-With", "request head中获取ajax请求标识的key"),
+    REQUEST_XML_HTTP_REQUEST("XMLHttpRequest", "request head中ajax请求的标识"),
+
+    CHINESE_MATCH_REGEX("[\\u4e00-\\u9fa5]", "chinese match regex"),
+
+    DICTIONARY_REMARK_CAPITAL_CITY("capital", "capital city remark"),
+    DICTIONARY_REMARK_NON_CAPITAL_CITY("default", "non capital city remark"),
+    DICTIONARY_GROUP_COUNTRY("country", "dictionary country group"),
+    DICTIONARY_GROUP_CITY("city", "dictionary city group"),
+    DICTIONARY_GROUP_PROVINCE("province", "dictionary province group"),
+
+    /**
      * Server Configuration Document Key
      */
     SERVER_APPLICATION_NAME("spring.application.name", "获取服务名称"),
-
     SERVER_PORT("server.port", "获取服务端口号"),
     ;
 
