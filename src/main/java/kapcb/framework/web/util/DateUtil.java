@@ -1,6 +1,6 @@
 package kapcb.framework.web.util;
 
-import lombok.extern.slf4j.Slf4j;
+import lombok.experimental.UtilityClass;
 import org.joda.time.DateTime;
 import org.joda.time.format.DateTimeFormat;
 import org.springframework.lang.NonNull;
@@ -19,11 +19,8 @@ import java.util.Locale;
  * @version 1.0.0
  * @date 2021/7/3 13:54
  */
-@Slf4j
+@UtilityClass
 public class DateUtil {
-
-    private DateUtil() {
-    }
 
     public static String format(@NonNull Date date, @NonNull String pattern) {
         return new DateTime(date).toString(pattern);
