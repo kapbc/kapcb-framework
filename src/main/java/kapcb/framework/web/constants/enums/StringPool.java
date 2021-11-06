@@ -56,11 +56,19 @@ public enum StringPool implements IEnumPool<String> {
     IMAGE_SUFFIX_GIF("gif", "image with gif"),
     IMAGE_SUFFIX_ICO("ico", "image with ico"),
 
+    REQUEST_URL("request url : {}", "request url"),
+    REQUEST_URI("request uri : {}", "request uri"),
+    PROCESS_COST_TIME("process cost time : {} ms", "process cost time"),
+    PROCESS_CLASS_NAME("process class name : {}", "process class name"),
+    PROCESS_METHOD_NAME("process method name : {}", "process method name"),
+    PROCESS_LOCAL_DATE_TIME("current local date time : {}", "current local date time"),
+    SPILT_LINE("[----------------------------------------------------------------------]", "spilt line"),
 
     /**
      * Server Configuration Document Key
      */
     SERVER_APPLICATION_NAME("spring.application.name", "获取服务名称"),
+
     SERVER_PORT("server.port", "获取服务端口号"),
     ;
 
