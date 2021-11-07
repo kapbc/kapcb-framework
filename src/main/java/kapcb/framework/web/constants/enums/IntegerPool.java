@@ -11,7 +11,7 @@ import kapcb.framework.web.constants.IEnumPool;
  * @version 1.0.0
  * @date 2021/7/3 13:39
  */
-public enum IntegerPool implements IEnumPool {
+public enum IntegerPool implements IEnumPool<Integer> {
 
     ZERO(0, "number 0"),
     ONE(1, "number 1"),

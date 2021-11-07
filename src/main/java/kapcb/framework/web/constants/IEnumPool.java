@@ -9,13 +9,12 @@ package kapcb.framework.web.constants;
  * @version 1.0.0
  * @date 2021/11/6 17:15
  */
-public interface IEnumPool {
+public interface IEnumPool<T> {
 
     /**
      * enum pool get value
      *
-     * @param <T> <T>
      * @return T
      */
-    <T> T value();
+    T value();
 }
