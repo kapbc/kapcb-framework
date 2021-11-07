@@ -11,7 +11,7 @@ import kapcb.framework.web.constants.IEnumPool;
  * @version 1.0.0
  * @date 2021/7/3 13:40
  */
-public enum LongPool implements IEnumPool<Long> {
+public enum LongPool implements IEnumPool {
 
     ZERO(0L, "number 0"),
     ONE(1L, "number 1"),
