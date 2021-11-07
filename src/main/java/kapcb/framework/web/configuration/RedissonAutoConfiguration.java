@@ -1,9 +1,6 @@
 package kapcb.framework.web.configuration;
 
-import kapcb.framework.web.properties.RedissonProperties;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
-import org.springframework.boot.context.properties.EnableConfigurationProperties;
 
 /**
  * <a>Title: RedissonAutoConfiguration </a>
