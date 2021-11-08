@@ -1,6 +1,5 @@
 package kapcb.framework.web.runner;
 
-import kapcb.framework.web.util.KapcbUtil;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -23,7 +22,7 @@ public abstract class BaseApplicationRunner implements ApplicationRunner {
     @Override
     public void run(ApplicationArguments args) throws Exception {
         if (initApplicationContext().isActive()) {
-            KapcbUtil.serverStartUpBanner(initEnvironment());
+//            KapcbUtil.serverStartUpBanner(initEnvironment());
         }
     }
 }
