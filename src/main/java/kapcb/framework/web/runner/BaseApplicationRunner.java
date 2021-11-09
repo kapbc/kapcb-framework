@@ -1,5 +1,7 @@
 package kapcb.framework.web.runner;
 
+import com.kapcb.framework.common.util.KapcbUtil;
+import lombok.RequiredArgsConstructor;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -14,15 +16,16 @@ import org.springframework.core.env.Environment;
  * @version 1.0.0
  * @date 2021/7/4 0:12
  */
-public abstract class BaseApplicationRunner implements ApplicationRunner {
+@RequiredArgsConstructor
+public class BaseApplicationRunner implements ApplicationRunner {
 
-    public abstract Environment initEnvironment();
-    public abstract ConfigurableApplicationContext initApplicationContext();
+    public final Environment initEnvironment;
+    public final ConfigurableApplicationContext initApplicationContext;
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
-//        if (initApplicationContext().isActive()) {
-//            KapcbUtil.serverStartUpBanner(initEnvironment());
-//        }
+        if (initApplicationContext.isActive()) {
+            KapcbUtil.serverStartUpBanner(initEnvironment);
+        }
     }
 }
