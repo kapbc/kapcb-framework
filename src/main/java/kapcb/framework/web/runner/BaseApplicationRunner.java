@@ -21,8 +21,8 @@ public abstract class BaseApplicationRunner implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
-        if (initApplicationContext().isActive()) {
+//        if (initApplicationContext().isActive()) {
 //            KapcbUtil.serverStartUpBanner(initEnvironment());
-        }
+//        }
     }
 }
