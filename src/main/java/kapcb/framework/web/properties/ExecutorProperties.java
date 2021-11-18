@@ -13,18 +13,22 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
  * @date 2021/7/3 13:45
  */
 @Data
-@ConfigurationProperties(prefix = "kapcb.executor.service")
+@ConfigurationProperties(prefix = "kapcb.async")
 public class ExecutorProperties {
 
-    private boolean autoConfigure = Boolean.FALSE;
+    private Boolean enable = Boolean.FALSE;
 
-    private int corePoolSize = 10;
+    private Integer corePoolSize = 5;
 
-    private int maxPoolSize = 20;
+    private Integer maxPoolSize = 5;
 
-    private int queueCapacity = 999;
+    private Integer queueCapacity = 999;
 
-    private int keepAliveTime = 30;
+    private Integer keepAliveTime = 30;
 
-    private String threadPrefix = "kapcb-executor-service-";
+    private Boolean waitForTasksToCompleteOnShutdown = true;
+
+    private Integer awaitTerminationMillis = 5;
+
+    private String threadPrefix = "kapcb-async-executor-";
 }
