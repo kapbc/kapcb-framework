@@ -45,4 +45,16 @@ public class ApplicationContextProvider implements ApplicationContextAware {
     public static <T> T getBean(String name, Class<T> clazz) {
         return applicationContext.getBean(name, clazz);
     }
+
+    public static boolean containsBean(String name) {
+        return applicationContext.containsBean(name);
+    }
+
+    public static boolean isSingleton(String name) {
+        return applicationContext.isSingleton(name);
+    }
+
+    public static Class<? extends Object> getType(String name) {
+        return applicationContext.getType(name);
+    }
 }
