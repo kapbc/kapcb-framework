@@ -28,4 +28,5 @@ public class BaseApplicationRunner implements ApplicationRunner {
             KapcbUtil.serverStartUpBanner(initEnvironment);
         }
     }
+
 }
