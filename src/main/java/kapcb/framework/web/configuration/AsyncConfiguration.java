@@ -65,5 +65,4 @@ public class AsyncConfiguration implements AsyncConfigurer {
     public AsyncUncaughtExceptionHandler getAsyncUncaughtExceptionHandler() {
         return (e, method, param) -> log.error(String.format("run async task '%s'", method), e);
     }
-
 }
