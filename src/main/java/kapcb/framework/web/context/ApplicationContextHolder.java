@@ -62,7 +62,7 @@ public class ApplicationContextHolder implements ApplicationContextAware, Dispos
     @Override
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
         if (Objects.nonNull(ApplicationContextHolder.applicationContext)) {
-            log.warn("SpringContextHolder中的ApplicationContext被覆盖, 原有ApplicationContext为:" + ApplicationContextHolder.applicationContext);
+            log.warn("ApplicationContextHolder's applicationContext will be replace, original applicationContext is : {}", ApplicationContextHolder.applicationContext);
         }
         ApplicationContextHolder.applicationContext = applicationContext;
     }
