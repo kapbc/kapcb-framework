@@ -25,10 +25,6 @@ public class CustomThreadPoolTaskExecutor extends ThreadPoolTaskExecutor {
 
     private void showDetail(String prefix) {
         ThreadPoolExecutor executor = getThreadPoolExecutor();
-        if (Objects.isNull(executor)) {
-            log.info("executor is null");
-            return;
-        }
         log.info("{}{}, task count : [{}], complete task count : [{}], active count : [{}], queue capacity : [{}]",
                 this.getDefaultThreadNamePrefix(),
                 prefix,
