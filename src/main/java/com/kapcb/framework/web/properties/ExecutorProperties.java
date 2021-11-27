@@ -1,4 +1,4 @@
-package kapcb.framework.web.properties;
+package com.kapcb.framework.web.properties;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;

@@ -1,4 +1,4 @@
-package kapcb.framework.web.service;
+package com.kapcb.framework.web.service;
 
 import com.kapcb.framework.common.page.IPageResult;
 import com.kapcb.framework.common.page.PageResult;

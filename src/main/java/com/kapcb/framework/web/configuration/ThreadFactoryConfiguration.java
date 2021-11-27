@@ -1,4 +1,4 @@
-package kapcb.framework.web.configuration;
+package com.kapcb.framework.web.configuration;
 
 import com.kapcb.framework.common.constants.enums.IntegerPool;
 import lombok.extern.slf4j.Slf4j;

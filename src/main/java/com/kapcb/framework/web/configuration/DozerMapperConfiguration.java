@@ -1,4 +1,4 @@
-package kapcb.framework.web.configuration;
+package com.kapcb.framework.web.configuration;
 
 import lombok.extern.slf4j.Slf4j;
 import org.dozer.DozerBeanMapper;

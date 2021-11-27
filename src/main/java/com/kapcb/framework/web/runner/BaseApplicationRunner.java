@@ -1,4 +1,4 @@
-package kapcb.framework.web.runner;
+package com.kapcb.framework.web.runner;
 
 import com.kapcb.framework.common.util.KapcbUtil;
 import lombok.RequiredArgsConstructor;

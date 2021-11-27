@@ -1,9 +1,9 @@
-package kapcb.framework.web.service.impl;
+package com.kapcb.framework.web.service.impl;
 
 import com.kapcb.framework.common.page.IPageResult;
 import com.kapcb.framework.common.page.PageResult;
 import com.kapcb.framework.common.util.PageResultUtil;
-import kapcb.framework.web.service.IDozerService;
+import com.kapcb.framework.web.service.IDozerService;
 import org.apache.commons.collections.CollectionUtils;
 import org.dozer.Mapper;
 import org.springframework.context.annotation.Lazy;

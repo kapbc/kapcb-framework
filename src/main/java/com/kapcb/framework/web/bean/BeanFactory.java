@@ -1,4 +1,4 @@
-package kapcb.framework.web.bean;
+package com.kapcb.framework.web.bean;
 
 /**
  * <a>Title: BeanFactory </a>

@@ -1,8 +1,8 @@
-package kapcb.framework.web.util;
+package com.kapcb.framework.web.util;
 
-import kapcb.framework.web.configuration.ThreadFactoryConfiguration;
-import kapcb.framework.web.context.ApplicationContextProvider;
-import kapcb.framework.web.properties.ExecutorProperties;
+import com.kapcb.framework.web.properties.ExecutorProperties;
+import com.kapcb.framework.web.configuration.ThreadFactoryConfiguration;
+import com.kapcb.framework.web.context.ApplicationContextProvider;
 import lombok.experimental.UtilityClass;
 
 import java.util.Objects;

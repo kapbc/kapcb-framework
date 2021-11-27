@@ -1,4 +1,4 @@
-package kapcb.framework.web.runner;
+package com.kapcb.framework.web.runner;
 
 import org.springframework.context.ApplicationEvent;
 import org.springframework.context.event.ContextClosedEvent;
