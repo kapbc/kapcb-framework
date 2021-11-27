@@ -8,6 +8,7 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.annotation.Order;
 import org.springframework.scheduling.annotation.AsyncConfigurer;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 
@@ -25,6 +26,7 @@ import java.util.concurrent.ThreadPoolExecutor;
  * @date 2021/11/18 21:35
  */
 @Slf4j
+@Order(-1)
 @Configuration
 @EnableConfigurationProperties(value = {ExecutorProperties.class})
 @ConditionalOnProperty(value = "kapcb.async.enable", havingValue = "true", matchIfMissing = true)
@@ -35,6 +37,7 @@ public class AsyncConfiguration implements AsyncConfigurer {
 
     @Bean("asyncExecutor")
     public ThreadPoolTaskExecutor asyncExecutor() {
+        log.info("[ begin to create async executor ]");
         CustomThreadPoolTaskExecutor executor = new CustomThreadPoolTaskExecutor();
         // 核心线程数
         executor.setCorePoolSize(executorProperties.getCorePoolSize());
