@@ -22,11 +22,12 @@ public abstract class CustomizeApplicationContextInitializer implements Applicat
 
     @Override
     public void initialize(ConfigurableApplicationContext configurableApplicationContext) {
-        
+
     }
 
     @Override
     public int getOrder() {
         return 0;
     }
+
 }
