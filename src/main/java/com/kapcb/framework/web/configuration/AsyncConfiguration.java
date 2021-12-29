@@ -57,7 +57,7 @@ public class AsyncConfiguration implements AsyncConfigurer {
         executor.setKeepAliveSeconds(asyncExecutorProperties.getKeepAliveTime());
         // rejection-policy 当pool达到max size的时候, 处理新任务的策略
         // CALLER_RUNS 不在新线程中执行, 而是调用者所在线程来执行
-        executor.setRejectedExecutionHandler(new ThreadPoolExecutor.CallerRunsPolicy());
+        executor.setRejectedExecutionHandler(asyncExecutorProperties.getRejectedExecutionHandlerPolicy().getRejectedExecutionHandler());
         // 应用关闭时-是否等待未完成任务继续执行，再继续销毁其他的Bean
         executor.setWaitForTasksToCompleteOnShutdown(asyncExecutorProperties.getWaitForTasksToCompleteOnShutdown());
         // 应用关闭时-继续等待时间（单位：秒）

@@ -64,7 +64,9 @@ public class AsyncExecutorProperties {
 
     /**
      * 线程池拒绝策略
+     * 不在新线程中执行, 而是调用者所在线程来执行
      * 默认 : {@linkplain RejectedExecutionHandlerPolicyEnum#CALLER_RUNS_POLICY}
      */
     private RejectedExecutionHandlerPolicyEnum rejectedExecutionHandlerPolicy = RejectedExecutionHandlerPolicyEnum.CALLER_RUNS_POLICY;
+
 }
