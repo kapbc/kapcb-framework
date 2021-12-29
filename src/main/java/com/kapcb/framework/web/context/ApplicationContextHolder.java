@@ -5,6 +5,7 @@ import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
+import org.springframework.core.env.Environment;
 
 import java.util.Objects;
 
@@ -20,50 +21,69 @@ import java.util.Objects;
 @Slf4j
 public class ApplicationContextHolder implements ApplicationContextAware, DisposableBean {
 
+    private static Environment environment;
     private static ApplicationContext applicationContext = null;
 
-    /**
-     * 从静态变量applicationContext中取得Bean, 自动转型为所赋值对象的类型.
-     *
-     * @param name
-     * @param <T>
-     * @return
-     */
+    @Override
+    public void destroy() throws Exception {
+        clearContextHolder();
+    }
+
+    @Override
+    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
+        if (ApplicationContextHolder.applicationContext == null) {
+            log.warn("ApplicationContextHolder's applicationContext will be replace, original applicationContext is : {}", ApplicationContextHolder.applicationContext);
+            ApplicationContextHolder.applicationContext = applicationContext;
+            ApplicationContextHolder.environment = applicationContext.getEnvironment();
+        }
+    }
+
     @SuppressWarnings("unchecked")
-    public static <T> T getBean(String name) {
-        assertContextInjected();
-        return (T) applicationContext.getBean(name);
+    public static Object getBean(String name) {
+        return applicationContext.getBean(name);
     }
 
     public static <T> T getBean(Class<T> clazz) {
-        assertContextInjected();
-        return (T) applicationContext.getBean(clazz);
+        return applicationContext.getBean(clazz);
     }
 
-    public static void clearContextHolder() {
+    public static <T> T getBean(String name, Class<T> clazz) {
+        return applicationContext.getBean(name, clazz);
+    }
+
+    public static boolean containsBean(String name) {
+        return applicationContext.containsBean(name);
+    }
+
+    public static boolean isSingleton(String name) {
+        return applicationContext.isSingleton(name);
+    }
+
+    public static Class<? extends Object> getType(String name) {
+        return applicationContext.getType(name);
+    }
+
+    public static Environment getEnvironment() {
+        return environment;
+    }
+
+    public static ApplicationContext getApplicationContext() {
+        return applicationContext;
+    }
+
+    public static void clear() {
+        clearContextHolder();
+    }
+
+    private static void clearContextHolder() {
         log.info("begin to clear application context holder");
         applicationContext = null;
     }
 
-    /**
-     * 检查ApplicationContext
-     */
     private static void assertContextInjected() {
         if (Objects.isNull(applicationContext)) {
             throw new IllegalStateException("please injected application context first");
         }
     }
 
-    @Override
-    public void destroy() throws Exception {
-        ApplicationContextHolder.clearContextHolder();
-    }
-
-    @Override
-    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
-        if (Objects.nonNull(ApplicationContextHolder.applicationContext)) {
-            log.warn("ApplicationContextHolder's applicationContext will be replace, original applicationContext is : {}", ApplicationContextHolder.applicationContext);
-        }
-        ApplicationContextHolder.applicationContext = applicationContext;
-    }
 }

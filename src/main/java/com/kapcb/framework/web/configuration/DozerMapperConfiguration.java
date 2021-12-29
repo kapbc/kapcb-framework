@@ -27,4 +27,5 @@ public class DozerMapperConfiguration {
         dozerBeanMapper.setMappingFiles(Collections.singletonList(Arrays.toString(resources)));
         return dozerBeanMapper;
     }
+
 }

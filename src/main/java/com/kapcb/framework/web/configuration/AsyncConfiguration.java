@@ -1,7 +1,7 @@
 package com.kapcb.framework.web.configuration;
 
 import com.kapcb.framework.web.properties.ExecutorProperties;
-import com.kapcb.framework.web.concurrent.CustomThreadPoolTaskExecutor;
+import com.kapcb.framework.web.executor.CustomThreadPoolTaskExecutor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.aop.interceptor.AsyncUncaughtExceptionHandler;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;

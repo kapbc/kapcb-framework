@@ -1,8 +1,8 @@
 package com.kapcb.framework.web.util;
 
+import com.kapcb.framework.web.context.ApplicationContextHolder;
 import com.kapcb.framework.web.properties.ExecutorProperties;
 import com.kapcb.framework.web.configuration.ThreadFactoryConfiguration;
-import com.kapcb.framework.web.context.ApplicationContextProvider;
 import lombok.experimental.UtilityClass;
 
 import java.util.Objects;
@@ -43,7 +43,7 @@ public class ThreadPoolExecutorUtil {
         if (Objects.isNull(executorProperties)) {
             synchronized (ThreadPoolExecutorUtil.class) {
                 if (Objects.isNull(executorProperties)) {
-                    executorProperties = ApplicationContextProvider.getBean(ExecutorProperties.class);
+                    executorProperties = ApplicationContextHolder.getBean(ExecutorProperties.class);
                 }
             }
         }
