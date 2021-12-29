@@ -1,7 +1,7 @@
 package com.kapcb.framework.web.util;
 
 import com.kapcb.framework.web.context.ApplicationContextHolder;
-import com.kapcb.framework.web.properties.ExecutorProperties;
+import com.kapcb.framework.web.properties.AsyncExecutorProperties;
 import com.kapcb.framework.web.configuration.ThreadFactoryConfiguration;
 import lombok.experimental.UtilityClass;
 
@@ -22,7 +22,7 @@ import java.util.concurrent.TimeUnit;
 @UtilityClass
 public class ThreadPoolExecutorUtil {
 
-    private static volatile ExecutorProperties executorProperties;
+    private static volatile AsyncExecutorProperties executorProperties;
 
     /**
      * 获取自定义线程池
@@ -30,7 +30,7 @@ public class ThreadPoolExecutorUtil {
      * @return ThreadPoolExecutor
      */
     public static ThreadPoolExecutor getThreadPool() {
-        ExecutorProperties executorProperties = getExecutorProperties();
+        AsyncExecutorProperties executorProperties = getExecutorProperties();
         return new ThreadPoolExecutor(executorProperties.getCorePoolSize(),
                 executorProperties.getMaxPoolSize(),
                 executorProperties.getKeepAliveTime(),
@@ -39,11 +39,11 @@ public class ThreadPoolExecutorUtil {
                 new ThreadFactoryConfiguration());
     }
 
-    private static ExecutorProperties getExecutorProperties() {
+    private static AsyncExecutorProperties getExecutorProperties() {
         if (Objects.isNull(executorProperties)) {
             synchronized (ThreadPoolExecutorUtil.class) {
                 if (Objects.isNull(executorProperties)) {
-                    executorProperties = ApplicationContextHolder.getBean(ExecutorProperties.class);
+                    executorProperties = ApplicationContextHolder.getBean(AsyncExecutorProperties.class);
                 }
             }
         }
