@@ -7,63 +7,25 @@
     <groupId>com.kapcb.ccc</groupId>
     <artifactId>kapcb-framework</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <packaging>jar</packaging>
+    <packaging>pom</packaging>
 
-    <parent>
-        <groupId>com.kapcb.ccc</groupId>
-        <artifactId>kapcb-dependencies</artifactId>
-        <version>1.0-SNAPSHOT</version>
-        <relativePath/>
-    </parent>
+    <licenses>
+        <license>
+            <name>Apache License, Version 2.0</name>
+            <url>https://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
 
-    <properties>
-        <java.version>8</java.version>
-    </properties>
+    <developers>
+        <developer>
+            <name>kapcb</name>
+            <email>eircccallroot@163.com</email>
+            <url>https://github.com/kapbc</url>
+        </developer>
+    </developers>
 
-    <dependencies>
-        <dependency>
-            <groupId>com.kapcb.ccc</groupId>
-            <artifactId>kapcb-common</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-configuration-processor</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>net.sf.dozer</groupId>
-            <artifactId>dozer</artifactId>
-            <exclusions>
-                <exclusion>
-                    <artifactId>jcl-over-slf4j</artifactId>
-                    <groupId>org.slf4j</groupId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-        <dependency>
-            <groupId>net.sf.dozer</groupId>
-            <artifactId>dozer-spring</artifactId>
-        </dependency>
-    </dependencies>
-
-    <build>
-        <finalName>${project.name}.${project.version}</finalName>
-        <plugins>
-            <plugin>
-                <!-- Build an executable JAR -->
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jar-plugin</artifactId>
-                <version>3.2.0</version>
-                <configuration>
-                    <archive>
-                        <manifest>
-                            <addClasspath>true</addClasspath>
-                            <classpathPrefix>lib/</classpathPrefix>
-                            <mainClass>NONE</mainClass>
-                        </manifest>
-                    </archive>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
+    <modules>
+        <module>kapcb-dependencies</module>
+    </modules>
 </project>
